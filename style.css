@@ -1,0 +1,388 @@
+*:not(.key textarea)
+{
+    font-family: 'Raleway', sans-serif;
+}
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: white;
+}
+::selection
+{
+    background-color: white;
+    color: black;
+}
+body
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 98vh;
+    gap: 25px;
+    background-color: rgba(35,35,35);
+}
+.header
+{
+    position: relative;
+}
+.header .quest-btn
+{
+    position: absolute;
+    right: -10%;
+    top: 50%;
+    transform: translate(50%,-50%);
+    background-color: transparent;
+    padding: 5px;
+    border: 0;
+    border-radius: 100px;
+    cursor: pointer;
+}
+.header .privacy-btn
+{
+    position: absolute;
+    left: -10%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    background-color: transparent;
+    padding: 5px;
+    border: 0;
+    border-radius: 100px;
+    cursor: pointer;
+}
+.header .quest-btn i,
+.header .privacy-btn i
+{
+    color: rgba(35,35,35);
+    font-size: 18px;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100px;
+    background-color: white;
+    transition: 0.35s;
+    border: 2px solid transparent;
+}
+.header .quest-btn:hover i,
+.header .privacy-btn:hover i
+{
+    background-color: transparent;
+    border: 2px solid white;
+    color: white;
+}
+.alertBox
+{
+    position: fixed;
+    top: 28%;
+    left: 50%;
+    transform: translate(-50%,50%);
+    width: 350px;
+    height: auto;
+    background-color: rgba(0,0,0,0.9);
+    box-shadow: 0 0 20px 2px black;
+    color: white;
+    opacity: 0;
+    transition: 0.35s;
+    pointer-events: none;
+    padding: 15px;
+    border-radius: 15px;
+    border: 2px solid rgba(255,255,255,0.3);
+    z-index: 99999999999999;
+    user-select: none;
+}
+.questBox
+{
+    width: 600px;
+    top: 50%;
+    max-height: 95vh;
+    overflow-y: auto;
+}
+.questBox .alertTitle
+{
+    position: relative;
+    width: 90%;
+}
+.questBox .alertText
+{
+    font-size: 20px;
+}
+.questBox .alertTitle .closeBtn
+{
+    position: absolute;
+    top: 50%;
+    right: -10%;
+    transform: translate(20%,-50%);
+    border: 0;
+    background-color: transparent;
+    padding: 5px;
+    border-radius: 100px;
+    cursor: pointer;
+}
+.questBox .alertTitle .closeBtn i
+{
+    font-size: 22px;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100px;
+    background-color: transparent;
+    color: white;
+    transition: 0.3s;
+    background-color: rgba(255,255,255,0.1);
+}
+.questBox .alertTitle .closeBtn:hover i
+{
+    background-color: rgba(255,255,255,0.2);
+}
+.alertBox p
+{
+    font-size: 18px;
+}
+.alertBox .alertContainer
+{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 10px;
+}
+.alertBox .alertContainer .alertBottom
+{
+    margin-top: 8px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+}
+.alertBox .alertContainer .alertBottom .bigAuthor
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+.alertBox .alertContainer .alertBottom .bigAuthor a
+{
+    font-size: 18px;
+}
+.alertBox .alertContainer .alertBottom .bigAuthor a:hover
+{
+    text-decoration: none;
+}
+.alertBox.active
+{
+    transform: translate(-50%,-50%);
+    opacity: 1;
+}
+.questBox.active
+{
+    pointer-events: all !important;
+    user-select: text !important;
+}
+.keys
+{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap: 25px;
+}
+.key
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+.key p
+{
+    font-size: 24px;
+}
+.key textarea
+{
+    padding: 10px 15px;
+    border-radius: 15px;
+    background-color: rgba(0,0,0,0.15);
+    outline: 2px solid rgba(0,0,0,0.05);
+    font-size: 18px;
+    height: 0;
+    width: 666px;
+    resize: none;
+    text-align: center;
+    transition: 0.3s;
+    animation: textareaanim 1s ease-in-out forwards;
+    box-shadow: 0 0 10px black;
+    cursor: pointer;
+    pointer-events: none;
+    user-select: none;
+}
+.key .txtArea
+{
+    border-radius: 15px;
+    cursor: pointer;
+    user-select: none;
+}
+@keyframes textareaanim {
+    0%
+    {
+        height: 0;
+    }
+    100%
+    {
+        height: 590px;
+    }
+}
+@keyframes textareaanim-refresh {
+    0%
+    {
+        height: 590px;
+    }
+    50%
+    {
+        height: 0;
+    }
+    100%
+    {
+        height: 590px;
+    }
+}
+.key .txtArea:hover textarea,
+.key .txtArea:active textarea
+{
+    background-color: rgba(255,255,255,0.1);
+    outline: 2px solid rgba(255,255,255,0.4) !important;
+}
+.refresh
+{
+    text-decoration: none;
+    color: white;
+    background-color: black;
+    padding: 10px 15px;
+    border-radius: 15px;
+    transition: 0.6s;
+    font-size: 20px;
+    margin-bottom: 15px;
+    user-select: none;
+}
+.refresh:hover
+{
+    scale: 1.2;
+    border-radius: 50px;
+}
+.refresh:active
+{
+    scale: 0.9;
+    border-radius: 50px;
+}
+@media (max-width:1380px)
+{
+    body
+    {
+        height: 100%;
+    }
+    .keys
+    {
+        flex-direction: column;
+    }    
+}
+@media (max-width: 690px)
+{
+    .key .txtArea textarea
+    {
+        width: 358px;
+    }
+    @keyframes textareaanim {
+        0%
+        {
+            height: 0;
+        }
+        100%
+        {
+            height: 400px;
+        }
+    }
+}
+@media (max-width:630px)
+{
+    .questBox
+    {
+        width: 450px;
+    }
+}
+@media (max-width:470px)
+{
+    .questBox
+    {
+        width: 380px;
+    }
+}
+@media (max-width:400px)
+{
+    .questBox,
+    .alertBox
+    {
+        width: 258px;
+    }
+}
+@media (max-width:360px)
+{
+    .key .txtArea textarea
+    {
+        width: 258px;
+    }
+    @keyframes textareaanim {
+        0%
+        {
+            height: 0;
+        }
+        100%
+        {
+            height: 300px;
+        }
+    }
+    .header .privacy-btn
+    {
+        top: 200%;
+        left: 40%;
+    }
+    .header .quest-btn
+    {
+        top: 200%;
+        right: 40%;
+    }
+}
+@media (max-width:258px)
+{
+    .keys
+    {
+        width: 97%;
+    }
+    .key,
+    .key .txtArea,
+    .key .txtArea textarea
+    {
+        width: 100%;
+    }
+    @keyframes textareaanim {
+        0%
+        {
+            height: 0;
+        }
+        100%
+        {
+            height: 200px;
+        }
+    }
+    .questBox,
+    .alertBox
+    {
+        width: 97%;
+    }
+}
